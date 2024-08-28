@@ -39,7 +39,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           decoration: const InputDecoration(
                             labelText: "Product Name",
                             hintText: "Enter name",
-                            prefixIcon: Icon(Icons.apartment_rounded),
+                            prefixIcon: Icon(Icons.shopping_cart_rounded),
                             border: OutlineInputBorder(),
                           ),
                         ),
@@ -52,7 +52,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           decoration: const InputDecoration(
                             labelText: "Product Price",
                             hintText: "Enter price",
-                            prefixIcon: Icon(Icons.phone),
+                            prefixIcon: Icon(Icons.attach_money_rounded),
                             border: OutlineInputBorder(),
                           ),
                         ),
@@ -65,7 +65,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           decoration: const InputDecoration(
                             labelText: "Product Quantity",
                             hintText: "Enter Quantity",
-                            prefixIcon: Icon(Icons.phone),
+                            prefixIcon: Icon(Icons.shopping_bag),
                             border: OutlineInputBorder(),
                           ),
                         ),
@@ -88,6 +88,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          20.w,
           FloatingActionButton.extended(
             onPressed: () {
               ProDetails.add({});
@@ -107,29 +108,20 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             ),
           ),
           20.w,
-          GestureDetector(
-            onTap: () {
+          FloatingActionButton.extended(
+            onPressed: () {
               Globals.allProductDetail.clear();
               Globals.allProductDetail = ProDetails;
             },
-            child: Container(
-              alignment: Alignment.center,
-              height: 60,
-              decoration: const BoxDecoration(
-                color: Color(0xffb79ced),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20),
-                ),
-              ),
-              child: const Text(
-                "  Save  ",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                    color: Colors.white),
-              ),
+            label: const Text(
+              "Save",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  color: Colors.white),
             ),
           ),
+          20.w,
         ],
       ),
     );

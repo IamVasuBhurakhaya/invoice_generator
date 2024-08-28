@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:invoice_generator/utils/extensions.dart';
-import 'package:invoice_generator/utils/globals.dart';
+import 'package:invoice_generator/utils/extensions.dart'; // Ensure this import is correct
+import 'package:invoice_generator/utils/globals.dart'; // Import globals file
 
 class CompanyDetailPage extends StatefulWidget {
   const CompanyDetailPage({super.key});
@@ -10,9 +10,8 @@ class CompanyDetailPage extends StatefulWidget {
 }
 
 class _CompanyDetailPageState extends State<CompanyDetailPage> {
-  List<Map> CompDetail = [
-    {},
-  ];
+  String? name, contact, address;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,113 +22,70 @@ class _CompanyDetailPageState extends State<CompanyDetailPage> {
         padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Column(
-            children: CompDetail.map((e) => Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(14),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        TextFormField(
-                          onChanged: (val) {
-                            e['company_name'] = val;
-                          },
-                          keyboardType: TextInputType.name,
-                          decoration: const InputDecoration(
-                            labelText: "Company Name",
-                            hintText: "Enter name",
-                            prefixIcon: Icon(Icons.apartment_rounded),
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                        10.h,
-                        TextFormField(
-                          onChanged: (val) {
-                            e['contact'] = val;
-                          },
-                          keyboardType: TextInputType.phone,
-                          decoration: const InputDecoration(
-                            labelText: "Company Contact",
-                            hintText: "Enter number",
-                            prefixIcon: Icon(Icons.phone),
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                        10.h,
-                        TextFormField(
-                          onChanged: (val) {
-                            e['address'] = val;
-                          },
-                          keyboardType: TextInputType.streetAddress,
-                          decoration: const InputDecoration(
-                            labelText: "Company Address",
-                            hintText: "Enter address",
-                            prefixIcon: Icon(Icons.location_on),
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                        ElevatedButton.icon(
-                          onPressed: () {
-                            CompDetail.removeAt(CompDetail.indexOf(e));
-                            setState(() {});
-                          },
-                          label: const Text("Remove"),
-                          icon: const Icon(Icons.remove),
-                        ),
-                      ],
-                    ),
+          child: Container(
+            padding: EdgeInsets.all(14),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
+            child: Column(
+              children: [
+                TextFormField(
+                  onChanged: (val) {
+                    name = val;
+                  },
+                  keyboardType: TextInputType.name,
+                  decoration: const InputDecoration(
+                    labelText: "Company Name",
+                    hintText: "Enter name",
+                    prefixIcon: Icon(Icons.apartment_rounded),
+                    border: OutlineInputBorder(),
                   ),
-                )).toList(),
+                ),
+                SizedBox(height: 10), // Use SizedBox for spacing
+                TextFormField(
+                  onChanged: (val) {
+                    contact = val;
+                  },
+                  keyboardType: TextInputType.phone,
+                  decoration: const InputDecoration(
+                    labelText: "Company Contact",
+                    hintText: "Enter number",
+                    prefixIcon: Icon(Icons.phone),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 10), // Use SizedBox for spacing
+                TextFormField(
+                  onChanged: (val) {
+                    address = val;
+                  },
+                  keyboardType: TextInputType.streetAddress,
+                  decoration: const InputDecoration(
+                    labelText: "Company Address",
+                    hintText: "Enter address",
+                    prefixIcon: Icon(Icons.location_on),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FloatingActionButton.extended(
-            onPressed: () {
-              CompDetail.add({});
-              setState(() {});
-            },
-            icon: const Icon(
-              Icons.add,
-              size: 30,
-              color: Colors.white,
-            ),
-            label: const Text(
-              "Add",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                  color: Colors.white),
-            ),
-          ),
-          20.w,
-          GestureDetector(
-            onTap: () {
-              Globals.allCompanyDetail.clear();
-              Globals.allCompanyDetail = CompDetail;
-            },
-            child: Container(
-              alignment: Alignment.center,
-              height: 60,
-              decoration: const BoxDecoration(
-                color: Color(0xffb79ced),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20),
-                ),
-              ),
-              child: const Text(
-                "  Save  ",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                    color: Colors.white),
-              ),
-            ),
-          ),
-        ],
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Globals.company_name = name;
+          Globals.company_contact = contact;
+          Globals.company_address = address;
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Data saved successfully')),
+          );
+        },
+        label: Text("Save"),
       ),
     );
   }
