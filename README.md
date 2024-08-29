@@ -38,19 +38,13 @@ The app features a modern and user-friendly interface designed to streamline the
 ### Output
 
 - **Images**:
-
-<img src="https://github.com/user-attachments/assets/7a9a039a-e494-4b2e-98da-8219e85631dd" height=600 width=300 >  
-
-<img src="https://github.com/user-attachments/assets/08354532-0086-4dd7-8c6d-c9d5f2972e51" height=600 width=300 >
-
-<img src="https://github.com/user-attachments/assets/b21b4ac4-69ff-4b8f-b5b3-360c2938f5b5" height=600 width=300 >
-
-<img src="https://github.com/user-attachments/assets/f6d9bca9-e2b2-4fd3-861f-ba968dc85a85" height=600 width=300 >
-
-<img src="https://github.com/user-attachments/assets/db7f6e71-4ae1-4f61-badf-d45f74dd58a4" height=600 width=300 >
-
-<img src="https://github.com/user-attachments/assets/27ba53a5-1b69-4be2-9757-1de7240477a1" height=600 width=300 >
-
+  
+<img src="https://github.com/user-attachments/assets/4e3b7dc3-5f41-4656-b74d-744b91052af5" height=600 width=300 > 
+<img src="(https://github.com/user-attachments/assets/5497449d-f42b-4c05-821e-276b9f30c39d" height=600 width=300 > 
+<img src="(https://github.com/user-attachments/assets/b1c22da9-6211-4a28-814e-b18cc7d3adf8" height=600 width=300 > 
+<img src="https://github.com/user-attachments/assets/bea1b983-1e53-477a-b166-a81f232f8238" height=600 width=300 > 
+<img src="https://github.com/user-attachments/assets/1462f511-aec2-4817-8d39-22399efebff8" height=600 width=300 > 
+<img src="https://github.com/user-attachments/assets/cb7dee1e-5bd6-4782-9fdc-bd92c14c3541" height=600 width=300 > 
 
 
 
