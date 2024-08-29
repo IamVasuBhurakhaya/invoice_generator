@@ -6,7 +6,7 @@ The Invoice Generator App is a mobile application developed using Flutter design
 
 ### Flutter PDF Package
 
-The app utilizes the `flutter_pdf` package to generate and manage PDF invoices.
+The app utilizes the `pdf` or `printing` package to generate and manage PDF invoices.
 
 ## Project Objectives
 
