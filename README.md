@@ -49,10 +49,6 @@ The app features a modern and user-friendly interface designed to streamline the
 
 <img src="https://github.com/user-attachments/assets/db7f6e71-4ae1-4f61-badf-d45f74dd58a4" height=600 width=300 >
 
-<img src="https://github.com/user-attachments/assets/b8fbefed-d78e-47f9-a79c-76f93c503824" height=600 width=300 >
-
-<img src="https://github.com/user-attachments/assets/8ff7d8bd-5f74-4867-b072-95fdf0561727" height=600 width=300 >
-
 <img src="https://github.com/user-attachments/assets/27ba53a5-1b69-4be2-9757-1de7240477a1" height=600 width=300 >
 
 
