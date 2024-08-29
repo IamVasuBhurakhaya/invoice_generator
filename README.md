@@ -40,11 +40,13 @@ The app features a modern and user-friendly interface designed to streamline the
 - **Images**:
   
 <img src="https://github.com/user-attachments/assets/4e3b7dc3-5f41-4656-b74d-744b91052af5" height=600 width=300 > 
-<img src="(https://github.com/user-attachments/assets/5497449d-f42b-4c05-821e-276b9f30c39d" height=600 width=300 > 
-<img src="(https://github.com/user-attachments/assets/b1c22da9-6211-4a28-814e-b18cc7d3adf8" height=600 width=300 > 
-<img src="https://github.com/user-attachments/assets/bea1b983-1e53-477a-b166-a81f232f8238" height=600 width=300 > 
-<img src="https://github.com/user-attachments/assets/1462f511-aec2-4817-8d39-22399efebff8" height=600 width=300 > 
+<img src="https://github.com/user-attachments/assets/8afa4e2c-1186-4118-880a-b907378abfa9" height=600 width=300 > 
+<img src="https://github.com/user-attachments/assets/6e05910b-9ce1-4328-b69b-b376efeadfb9" height=600 width=300 > 
 <img src="https://github.com/user-attachments/assets/cb7dee1e-5bd6-4782-9fdc-bd92c14c3541" height=600 width=300 > 
+<img src="https://github.com/user-attachments/assets/1462f511-aec2-4817-8d39-22399efebff8" height=600 width=300 > 
+<img src="https://github.com/user-attachments/assets/bea1b983-1e53-477a-b166-a81f232f8238" height=600 width=300 > 
+<img src="https://github.com/user-attachments/assets/f98fc8be-290f-4123-9dd2-8293a6cfe779" height=600 width=300 > 
+
 
 
 
