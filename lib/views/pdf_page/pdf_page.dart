@@ -14,8 +14,7 @@ class PdfPage extends StatefulWidget {
 }
 
 class _PdfPageState extends State<PdfPage> {
-  Future<Uint8List> getPDF()
-  {
+  Future<Uint8List> getPDF() {
     final pdf = pw.Document();
 
     pdf.addPage(
@@ -27,7 +26,7 @@ class _PdfPageState extends State<PdfPage> {
             pw.Container(
               padding:
                   const pw.EdgeInsets.symmetric(vertical: 30, horizontal: 50),
-              decoration: pw.BoxDecoration(
+              decoration: const pw.BoxDecoration(
                 color:
                     PdfColor.fromInt(0xffb79ced), // Background color for header
                 borderRadius: pw.BorderRadius.only(
@@ -48,14 +47,14 @@ class _PdfPageState extends State<PdfPage> {
                   ),
                   pw.Text(
                     "${Globals.company_contact}",
-                    style: pw.TextStyle(
+                    style: const pw.TextStyle(
                       fontSize: 18,
                       color: PdfColors.white, // Text color
                     ),
                   ),
                   pw.Text(
                     "${Globals.company_address}",
-                    style: pw.TextStyle(
+                    style: const pw.TextStyle(
                       fontSize: 18,
                       color: PdfColors.white, // Text color
                     ),
@@ -99,7 +98,7 @@ class _PdfPageState extends State<PdfPage> {
               border: pw.TableBorder.all(color: PdfColors.grey300),
               cellPadding:
                   const pw.EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-              rowDecoration: pw.BoxDecoration(
+              rowDecoration: const pw.BoxDecoration(
                 color: PdfColors.grey100,
               ),
             ),
@@ -109,7 +108,7 @@ class _PdfPageState extends State<PdfPage> {
               alignment: pw.Alignment.centerRight,
               padding:
                   const pw.EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: pw.BoxDecoration(
+              decoration: const pw.BoxDecoration(
                 color:
                     PdfColor.fromInt(0xffb79ced), // Background color for footer
                 borderRadius: pw.BorderRadius.only(

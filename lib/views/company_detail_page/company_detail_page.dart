@@ -11,81 +11,167 @@ class CompanyDetailPage extends StatefulWidget {
 
 class _CompanyDetailPageState extends State<CompanyDetailPage> {
   String? name, contact, address;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Company Details"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Container(
-            padding: EdgeInsets.all(14),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(20),
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus!.unfocus();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Company Details"),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+                color: Colors.white,
               ),
-            ),
-            child: Column(
-              children: [
-                TextFormField(
-                  onChanged: (val) {
-                    name = val;
-                  },
-                  keyboardType: TextInputType.name,
-                  decoration: const InputDecoration(
-                    labelText: "Company Name",
-                    hintText: "Enter name",
-                    prefixIcon: Icon(Icons.apartment_rounded),
-                    border: OutlineInputBorder(),
-                  ),
+              child: Form(
+                key: formKey,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    //name
+                    TextFormField(
+                      initialValue: Globals.company_name,
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return "Please enter company name !!";
+                        } else {
+                          return null;
+                        }
+                      },
+                      onSaved: (val) {
+                        Globals.company_name = val;
+                      },
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: "Company name",
+                        hintText: "Enter name",
+                        prefixIcon: const Icon(Icons.apartment_rounded),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
+                    15.h,
+
+                    //contact
+                    TextFormField(
+                      initialValue: Globals.company_contact,
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return "Please enter number !!";
+                        } else if (val.length < 10) {
+                          return "Contact number must be of 10 digits !!";
+                        } else {
+                          return null;
+                        }
+                      },
+                      onSaved: (val) {
+                        Globals.company_contact = val;
+                      },
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        labelText: "Company contact",
+                        hintText: "Enter number ",
+                        prefixIcon: const Icon(Icons.phone),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
+                    15.h,
+
+                    //institute
+                    TextFormField(
+                      initialValue: Globals.company_address,
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return "Please enter addres !!";
+                        } else {
+                          return null;
+                        }
+                      },
+                      onSaved: (val) {
+                        Globals.company_address = val;
+                      },
+                      textInputAction: TextInputAction.done,
+                      decoration: InputDecoration(
+                        labelText: "Company address",
+                        hintText: "Enter address",
+                        prefixIcon: const Icon(Icons.school_outlined),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
+                    15.h,
+
+                    30.h,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            formKey.currentState!.reset();
+
+                            Globals.company_address = Globals.company_contact =
+                                Globals.company_name = null;
+                            setState(() {});
+                          },
+                          child: const Text("RESET"),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            bool validated = formKey.currentState!.validate();
+
+                            if (validated) {
+                              formKey.currentState!.save();
+
+                              SnackBar snackBar = const SnackBar(
+                                content: Text("Form saved successfully...!!"),
+                                backgroundColor: Colors.green,
+                                behavior: SnackBarBehavior.floating,
+                              );
+
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            } else {
+                              SnackBar snackBar = const SnackBar(
+                                content: Text("Form submission failed...!!"),
+                                backgroundColor: Colors.red,
+                                behavior: SnackBarBehavior.floating,
+                              );
+
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            }
+                          },
+                          child: const Text("SAVE"),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                SizedBox(height: 10), // Use SizedBox for spacing
-                TextFormField(
-                  onChanged: (val) {
-                    contact = val;
-                  },
-                  keyboardType: TextInputType.phone,
-                  decoration: const InputDecoration(
-                    labelText: "Company Contact",
-                    hintText: "Enter number",
-                    prefixIcon: Icon(Icons.phone),
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(height: 10), // Use SizedBox for spacing
-                TextFormField(
-                  onChanged: (val) {
-                    address = val;
-                  },
-                  keyboardType: TextInputType.streetAddress,
-                  decoration: const InputDecoration(
-                    labelText: "Company Address",
-                    hintText: "Enter address",
-                    prefixIcon: Icon(Icons.location_on),
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Globals.company_name = name;
-          Globals.company_contact = contact;
-          Globals.company_address = address;
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Data saved successfully')),
-          );
-        },
-        label: Text("Save"),
       ),
     );
   }
